@@ -1,0 +1,42 @@
+version: "3.8"
+
+name: local_postgresql
+services:
+  postgres-server:
+    container_name: postgresql
+    hostname: postgresql
+    image: postgres:16.2-alpine
+    volumes:
+      - ./postgresql_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    networks:
+      - local_postgresql_net
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin4
+    hostname: pgadmin4
+    image: dpage/pgadmin4:8.4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@postgres.sql
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_CONFIG_SERVER_MODE=False
+      - PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False
+    networks:
+      - local_postgresql_net
+    volumes:
+      - ./pgadmin4_data:/var/lib/pgadmin
+    ports:
+      - 5433:80
+    restart: unless-stopped
+    depends_on:
+      - postgres-server
+
+networks:
+  local_postgresql_net:
+    name: local_postgresql
