@@ -1,11 +1,9 @@
-# Xojo (formerly REALbasic and Real Studio)
+# Repository
 
-Builds*
-*.debug
-*.debug.app
-Debug*.exe
-Debug*/Debug*.exe
-Debug*/Debug*\ Libs
-*.rbuistate
-*.xojo_uistate
-*.obsolete*
+# nothing to exclude
+# see additional .gitignore's in subdirectories
+
+# General
+.DS_Store
+Thumbs.db
+Desktop.ini
