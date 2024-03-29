@@ -1,0 +1,19 @@
+version: "3.8"
+
+name: local_cubesql
+services:
+  cubesql-server:
+    container_name: cubesql
+    hostname: cubesql
+    image: jotools/cubesql:5.9.1-alpine
+    volumes:
+      - ./cubesql_data:/data
+    networks:
+      - local_cubesql_net
+    ports:
+      - 4430:4430
+    restart: unless-stopped
+
+networks:
+  local_cubesql_net:
+    name: local_cubesql

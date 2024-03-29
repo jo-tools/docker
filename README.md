@@ -24,6 +24,11 @@ Example `docker-compose.yml`
   - Volumes: [Local PostgreSQL Server | pgAdmin](./local-postgres-volumes/)
   - Bind Mounts: [Local PostgreSQL Server | pgAdmin](./local-postgres-bind-mounts/)
 
+### CubeSQL Server
+Example `docker-compose.yml`
+  - Volumes: [Local CubeSQL Server](./local-cubesql-volumes/)
+  - Bind Mounts: [Local CubeSQL Server](./local-cubesql-bind-mounts/)
+
 
 ## About
 Juerg Otter is a long term user of Xojo and working for [CM Informatik AG](https://cmiag.ch/). Their Application [CMI LehrerOffice](https://cmi-bildung.ch/) is a Xojo Design Award Winner 2018. In his leisure time Juerg provides some [bits and pieces for Xojo Developers](https://www.jo-tools.ch/).
