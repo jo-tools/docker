@@ -30,6 +30,13 @@ Example `docker-compose.yml`
   - Bind Mounts: [Local CubeSQL Server](./local-cubesql-bind-mounts/)
 
 
+## Shell Scripts
+
+Example [Shell Scripts](./shell-scripts/)
+- `docker-volume-cp.sh`  
+  Copy Data from Host to Docker Volume | Copy Data from Docker Volume to Host
+
+
 ## About
 Juerg Otter is a long term user of Xojo and working for [CM Informatik AG](https://cmiag.ch/). Their Application [CMI LehrerOffice](https://cmi-bildung.ch/) is a Xojo Design Award Winner 2018. In his leisure time Juerg provides some [bits and pieces for Xojo Developers](https://www.jo-tools.ch/).
 
