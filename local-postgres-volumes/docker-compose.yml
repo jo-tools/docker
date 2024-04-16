@@ -1,11 +1,10 @@
-version: "3.8"
-
 name: local_postgresql
 services:
   postgres-server:
+    platform: linux/amd64
     container_name: postgresql
     hostname: postgresql
-    image: postgres:16.2-alpine
+    image: postgres:16-alpine
     volumes:
       - postgresql_data:/var/lib/postgresql/data
     environment:
@@ -19,12 +18,14 @@ services:
     restart: unless-stopped
 
   pgadmin:
+    platform: linux/amd64
     container_name: pgadmin4
     hostname: pgadmin4
-    image: dpage/pgadmin4:8.4
+    image: dpage/pgadmin4:8
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@postgres.sql
       - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED=False
       - PGADMIN_CONFIG_SERVER_MODE=False
       - PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False
     networks:

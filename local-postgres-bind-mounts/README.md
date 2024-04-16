@@ -55,7 +55,7 @@ Use the following commands for this setup
 ### Start the setup
 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 ### Stop all services in this setup
