@@ -1,0 +1,42 @@
+name: local_mariadb
+services:
+  mariadb-server:
+    platform: linux/amd64
+    container_name: mariadb
+    hostname: mariadb
+    image: mariadb:11
+    volumes:
+      - ./mariadb_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=mariadb
+    networks:
+      - local_mariadb_net
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+
+  phpmyadmin:
+    platform: linux/amd64
+    container_name: phpmyadmin
+    hostname: phpmyadmin
+    image: phpmyadmin:5
+    environment:
+      - PMA_HOST=host.docker.internal
+      - PMA_USER=root
+      - PMA_PASSWORD=mariadb
+    networks:
+      - local_mariadb_net
+    ports:
+      - 3307:80
+    restart: unless-stopped
+    depends_on:
+      - mariadb-server
+
+volumes:
+  mariadb_data:
+    driver: local
+    name: mariadb_data
+
+networks:
+  local_mariadb_net:
+    name: local_mariadb

@@ -64,8 +64,8 @@ docker-compose up -d
 docker-compose stop
 ```
 
-### Remove all services and volumes from this setup
+### Remove all services from this setup
 
 ```
-docker-compose down -v
+docker-compose down
 ```

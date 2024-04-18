@@ -29,6 +29,10 @@ Example `docker-compose.yml`
   - Volumes: [Local CubeSQL Server](./local-cubesql-volumes/)
   - Bind Mounts: [Local CubeSQL Server](./local-cubesql-bind-mounts/)
 
+### MariaDB | phpMyAdmin
+Example `docker-compose.yml`
+  - Volumes: [Local MariaDB | phpMyAdmin](./local-mariadb-volumes/)
+  - Bind Mounts: [Local MariaDB | phpMyAdmin](./local-mariadb-bind-mounts/)
 
 ## Shell Scripts
 
