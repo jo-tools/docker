@@ -42,6 +42,16 @@ Connect from phpMyAdmin to MariaDB server:
   - This might not work depending on the Connection Library.  
     It seems some need an IP (`127.0.0.1`) and won't work with `localhost`.
 
+## phpMyAdmin: Add Themes
+
+1. [Download a Theme](https://www.phpmyadmin.net/themes/) of your choice
+2. Extract the downloaded .zip and save the Theme in e.g.:  
+   `./pma-themes/boodark-nord/`
+3. Add the local Theme as a Bind Mount volume to service `phpmyadmin`:
+   ```
+   volumes:
+     - './pma-themes/boodark-nord:/var/www/html/themes/boodark-nord:ro'
+   ```
 
 ## Docker Compose
 
