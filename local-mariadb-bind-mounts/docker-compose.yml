@@ -1,3 +1,5 @@
+x-common-timezone: &services-timezone Etc/UTC
+
 name: local_mariadb
 services:
   mariadb-server:
@@ -8,7 +10,8 @@ services:
     volumes:
       - ./mariadb_data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=mariadb
+      TZ: *services-timezone
+      MYSQL_ROOT_PASSWORD: mariadb
     networks:
       - local_mariadb_net
     ports:
@@ -21,9 +24,10 @@ services:
     hostname: phpmyadmin
     image: phpmyadmin:5
     environment:
-      - PMA_HOST=host.docker.internal
-      - PMA_USER=root
-      - PMA_PASSWORD=mariadb
+      TZ: *services-timezone
+      PMA_HOST: host.docker.internal
+      PMA_USER: root
+      PMA_PASSWORD: mariadb
     networks:
       - local_mariadb_net
     ports:

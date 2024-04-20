@@ -1,3 +1,5 @@
+x-common-timezone: &services-timezone Etc/UTC
+
 name: local_postgresql
 services:
   postgres-server:
@@ -8,9 +10,11 @@ services:
     volumes:
       - ./postgresql_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=postgres
+      TZ: *services-timezone
+      PGTZ: *services-timezone
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
     networks:
       - local_postgresql_net
     ports:
@@ -23,11 +27,12 @@ services:
     hostname: pgadmin4
     image: dpage/pgadmin4:8
     environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@postgres.sql
-      - PGADMIN_DEFAULT_PASSWORD=admin
-      - PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED=False
-      - PGADMIN_CONFIG_SERVER_MODE=False
-      - PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False
+      TZ: *services-timezone
+      PGADMIN_DEFAULT_EMAIL: admin@postgres.sql
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED: "False"
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
     networks:
       - local_postgresql_net
     volumes:
