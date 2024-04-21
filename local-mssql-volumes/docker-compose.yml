@@ -1,0 +1,54 @@
+# Notes
+# Volume mssql_data needs to be created manually before running this setup
+# Password needs to be at least 8 characters and strong enough
+
+x-common-timezone: &services-timezone Etc/UTC
+
+name: local_mssql
+services:
+  mssql-server:
+    platform: linux/amd64
+    container_name: mssql
+    hostname: mssql
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    volumes:
+      - type: volume
+        source: mssql_data
+        target: /var/opt/mssql
+    environment:
+      TZ: *services-timezone
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'Passw0rd'
+      MSSQL_TCP_PORT: 1433
+    networks:
+      - local_mssql_net
+    ports:
+      - 1433:1433
+    restart: unless-stopped
+
+  adminer:
+    platform: linux/amd64
+    container_name: adminer
+    hostname: adminer
+    image: adminer:4-standalone
+    environment:
+      TZ: *services-timezone
+      ADMINER_DEFAULT_DB_DRIVER: mssql
+      ADMINER_DEFAULT_SERVER: mssql
+      ADMINER_DEFAULT_DB_NAME: master
+    networks:
+      - local_mssql_net
+    ports:
+      - 1434:8080
+    restart: unless-stopped
+    depends_on:
+      - mssql-server
+
+volumes:
+  mssql_data:
+    external:
+      name: mssql_data
+
+networks:
+  local_mssql_net:
+    name: local_mssql
