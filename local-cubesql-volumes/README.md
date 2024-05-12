@@ -1,8 +1,10 @@
-# CubeSQL Server
+# cubeSQL Server | cubeSQL Web Admin
 
-This setup contains the following Docker Image:
-- [CubeSQL Server](https://hub.docker.com/r/jotools/cubesql)  
-  CubeSQL (© sqlabs) is a fully featured and high performance relational database management system built on top of the sqlite database engine.
+This setup contains the following Docker Images:
+- [cubeSQL Server](https://hub.docker.com/r/jotools/cubesql)  
+  cubeSQL (© sqlabs) is a fully featured and high performance relational database management system built on top of the sqlite database engine.
+- [cubeSQL Web Admin](https://hub.docker.com/r/jotools/cubesql-webadmin)  
+  Web Administration for cubeSQL Server.
 
 > **Warning**  
 > This setup is only intended as a local test setup.  
@@ -12,20 +14,25 @@ This setup contains the following Docker Image:
 This provides a Docker Compose setup: `local_cubesql`
 
 - Containers
-  - `cubesql-server`: CubeSQL Server
+  - `cubesql-server`: cubeSQL Server
+  - `cubesql-webadmin`: cubeSQL Web Admin
 - Ports | Endpoints
-  - CubeSQL Server: `4430`
+  - cubeSQL Server: `4430`
+  - cubeSQL Web Admin: [`http://localhost:4431`](http://localhost:4431)
 - Volumes
   - `cubesql_data`
 - Network `local_cubesql` with Hosts:
      - `cubesql`
+     - `cubesql-webadmin`
 
-### CubeSQL License / Registration
+### cubeSQL License / Registration
 
 You will need to register cubeSQL.
 
-1. [Request a Key](https://www.sqlabs.com/cubesql_devkey) from [sqlabs](https://www.sqlabs.com/cubesql)
-2. Download [CubeSQL Admin](https://github.com/cubesql/cubeSQLAdmin), connect to CubeSQL Server and register your server
+1. Login with [cubeSQL Web Admin](http://localhost:4450)
+2. Go to "Server -> Registration"
+3. [Request a Key](https://www.sqlabs.com/cubesql_devkey) from [sqlabs](https://www.sqlabs.com/cubesql)
+4. Register your server
 
 
 ## Docker Compose

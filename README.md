@@ -24,10 +24,10 @@ Example `docker-compose.yml`
   - Volumes: [Local PostgreSQL Server | pgAdmin](./local-postgres-volumes/)
   - Bind Mounts: [Local PostgreSQL Server | pgAdmin](./local-postgres-bind-mounts/)
 
-### CubeSQL Server
+### cubeSQL Server | cubeSQL Web Admin
 Example `docker-compose.yml`
-  - Volumes: [Local CubeSQL Server](./local-cubesql-volumes/)
-  - Bind Mounts: [Local CubeSQL Server](./local-cubesql-bind-mounts/)
+  - Volumes: [Local cubeSQL Server | cubeSQL Web Admin](./local-cubesql-volumes/)
+  - Bind Mounts: [Local cubeSQL Server | cubeSQL Web Admin](./local-cubesql-bind-mounts/)
 
 ### MariaDB | phpMyAdmin
 Example `docker-compose.yml`

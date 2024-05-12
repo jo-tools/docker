@@ -1,11 +1,14 @@
-version: "3.8"
+x-common-timezone: &services-timezone Etc/UTC
 
 name: local_cubesql
 services:
   cubesql-server:
+    platform: linux/amd64
     container_name: cubesql
     hostname: cubesql
-    image: jotools/cubesql:5.9.1-alpine
+    image: jotools/cubesql:5.9.1
+    environment:
+      TZ: *services-timezone
     volumes:
       - cubesql_data:/data
     networks:
@@ -13,6 +16,24 @@ services:
     ports:
       - 4430:4430
     restart: unless-stopped
+  cubesql-webadmin:
+    platform: linux/amd64
+    container_name: cubesql-webadmin
+    hostname: cubesql-webadmin
+    image: jotools/cubesql-webadmin
+    environment:
+      TZ: *services-timezone
+      CUBESQL_HOSTNAME: host.docker.internal
+      CUBESQL_PORT: 4430
+      CUBESQL_USERNAME: admin
+      CUBESQL_PASSWORD: admin
+    networks:
+      - local_cubesql_net
+    ports:
+      - 4431:80
+    restart: unless-stopped
+    depends_on:
+      - cubesql-server
 
 volumes:
   cubesql_data:
