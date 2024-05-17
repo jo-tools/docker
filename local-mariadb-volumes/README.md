@@ -69,8 +69,24 @@ docker-compose up -d
 docker-compose stop
 ```
 
-### Remove all services and volumes from this setup
+### Remove all services from this setup
+
+- Leaving the Volumes in place  
+  ```
+  docker-compose down
+  ```
+
+- Also remove the Volumes and Data
+  ```
+  docker-compose down -v
+  ```
+
+### Update all services from this setup
+
+These 3 commands will first tear down the existing containers *(leaving volumes and data in place)*, then pull the latest versions from Docker Hub and set everything up again:
 
 ```
-docker-compose down -v
+docker-compose down
+docker-compose pull
+docker-compose up -d
 ```

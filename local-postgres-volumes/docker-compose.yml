@@ -3,7 +3,6 @@ x-common-timezone: &services-timezone Etc/UTC
 name: local_postgresql
 services:
   postgres-server:
-    platform: linux/amd64
     container_name: postgresql
     hostname: postgresql
     image: postgres:16-alpine
@@ -22,7 +21,6 @@ services:
     restart: unless-stopped
 
   pgadmin:
-    platform: linux/amd64
     container_name: pgadmin4
     hostname: pgadmin4
     image: dpage/pgadmin4:8

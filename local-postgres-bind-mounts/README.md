@@ -69,3 +69,13 @@ docker-compose stop
 ```
 docker-compose down
 ```
+
+### Update all services from this setup
+
+These 3 commands will first tear down the existing containers, then pull the latest versions from Docker Hub and set everything up again:
+
+```
+docker-compose down
+docker-compose pull
+docker-compose up -d
+```

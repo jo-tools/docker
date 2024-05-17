@@ -3,7 +3,6 @@ x-common-timezone: &services-timezone Etc/UTC
 name: local_mariadb
 services:
   mariadb-server:
-    platform: linux/amd64
     container_name: mariadb
     hostname: mariadb
     image: mariadb:11
@@ -19,7 +18,6 @@ services:
     restart: unless-stopped
 
   phpmyadmin:
-    platform: linux/amd64
     container_name: phpmyadmin
     hostname: phpmyadmin
     image: phpmyadmin:5

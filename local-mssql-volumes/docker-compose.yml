@@ -7,6 +7,8 @@ x-common-timezone: &services-timezone Etc/UTC
 name: local_mssql
 services:
   mssql-server:
+#   This image is only available for Linux x86-64
+#   Set platform to run it in emulation mode on hosts which support that platform
     platform: linux/amd64
     container_name: mssql
     hostname: mssql
@@ -27,7 +29,6 @@ services:
     restart: unless-stopped
 
   adminer:
-    platform: linux/amd64
     container_name: adminer
     hostname: adminer
     image: adminer:4-standalone

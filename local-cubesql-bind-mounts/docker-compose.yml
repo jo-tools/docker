@@ -3,6 +3,8 @@ x-common-timezone: &services-timezone Etc/UTC
 name: local_cubesql
 services:
   cubesql-server:
+#   This image is only available for Linux x86-64
+#   Set platform to run it in emulation mode on hosts which support that platform
     platform: linux/amd64
     container_name: cubesql
     hostname: cubesql
@@ -17,7 +19,6 @@ services:
       - 4430:4430
     restart: unless-stopped
   cubesql-webadmin:
-    platform: linux/amd64
     container_name: cubesql-webadmin
     hostname: cubesql-webadmin
     image: jotools/cubesql-webadmin
