@@ -25,6 +25,8 @@ This provides a Docker Compose setup: `local_cubesql`
      - `cubesql`
      - `cubesql-webadmin`
 
+The local file [`connection-choice.json`](./connection-choice.json) is mounted into `/data` of the container of cubeSQL Web Admin to provide a preconfigured choice of connections.
+
 ### cubeSQL License / Registration
 
 You will need to register cubeSQL.

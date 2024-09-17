@@ -1,0 +1,41 @@
+[
+	{
+		"caption": "Docker (AES256)",
+		"selected": true,
+		"hostname": "host.docker.internal",
+		"username": "admin",
+		"password": "admin",
+		"port": 4430,
+		"encryption": "AES256",
+		"sslcertificate": "",
+		"sslcertificatepassword": "",
+		"sslrootcertificate": "",
+		"sslcipherlist": ""
+	},
+	{
+		"caption": "Docker (AES128)",
+		"selected": false,
+		"hostname": "host.docker.internal",
+		"username": "admin",
+		"password": "admin",
+		"port": 4430,
+		"encryption": "AES128",
+		"sslcertificate": "",
+		"sslcertificatepassword": "",
+		"sslrootcertificate": "",
+		"sslcipherlist": ""
+	},
+	{
+		"caption": "Docker (NONE)",
+		"selected": false,
+		"hostname": "host.docker.internal",
+		"username": "admin",
+		"password": "admin",
+		"port": 4430,
+		"encryption": "NONE",
+		"sslcertificate": "",
+		"sslcertificatepassword": "",
+		"sslrootcertificate": "",
+		"sslcipherlist": ""
+	}
+]

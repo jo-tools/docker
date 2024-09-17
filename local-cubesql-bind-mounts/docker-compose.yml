@@ -28,6 +28,9 @@ services:
       CUBESQL_PORT: 4430
       CUBESQL_USERNAME: admin
       CUBESQL_PASSWORD: admin
+      CUBESQL_CONNECTIONCHOICE: /data/connection-choice.json
+    volumes:
+      - ./connection-choice.json:/data/connection-choice.json
     networks:
       - local_cubesql_net
     ports:
