@@ -3,12 +3,9 @@ x-common-timezone: &services-timezone Etc/UTC
 name: local_cubesql
 services:
   cubesql-server:
-#   This image is only available for Linux x86-64
-#   Set platform to run it in emulation mode on hosts which support that platform
-    platform: linux/amd64
     container_name: cubesql
     hostname: cubesql
-    image: jotools/cubesql:5.9.1
+    image: jotools/cubesql
     environment:
       TZ: *services-timezone
     volumes:
